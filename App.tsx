@@ -21,6 +21,9 @@ import {
 
 import LinearGradient from 'react-native-linear-gradient';
 
+import { colors } from './source/assets/theme/colors';
+import { translate } from './source/assets/texts/Translate';
+
 declare const global: {HermesInternal: null | {}};
 
 const App = () => {
@@ -36,7 +39,7 @@ const App = () => {
         <LinearGradient 
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
-          colors={['#A9DEF9', '#D68FD6']} 
+          colors={[colors.blue_gradient, colors.purple_gradient]} 
           style={styles.container}>
           <View style={styles.viewImg}>
             <Image
@@ -45,9 +48,9 @@ const App = () => {
             />
           </View>
           <View style={styles.viewText}>
-            <Text style={styles.textTitle}>Bienvenue !</Text>
-            <Text style={styles.textDescription}>CardApp a pour but de vous aider à découvrir de nombreux jeux de cartes.</Text>
-            <Text style={styles.textDescription}>Vous pourrez aussi en ajouter de nouveaux et les partager entre amis.</Text>
+            <Text style={styles.textTitle}>{translate('welcome')}</Text>
+            <Text style={styles.textDescription}>{translate('home_desc_1')}</Text>
+            <Text style={styles.textDescription}>{translate('home_desc_2')}</Text>
           </View>
           <View style={styles.viewBtn}>
             <TouchableOpacity
