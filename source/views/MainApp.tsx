@@ -10,9 +10,9 @@ const Tab = createBottomTabNavigator();
 export default function MainScreen() {
     return(
         <Tab.Navigator initialRouteName="Tabs">
-            <Tab.Screen name="One" component={ListScreen} />
-            <Tab.Screen name="Two" component={FavoriteScreen} />
-            <Tab.Screen name="Three" component={RandomScreen} />
+            <Tab.Screen name="Liste" component={ListScreen} />
+            <Tab.Screen name="Favoris" component={FavoriteScreen} />
+            <Tab.Screen name="Surprise" component={RandomScreen} />
         </Tab.Navigator>
     )
 }
