@@ -6,7 +6,6 @@ import {
     Image,
     View,
     Text,
-    StatusBar,
     TouchableOpacity,
   } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -54,7 +53,6 @@ const HomeScreen = ({navigation}) => {
   
   const styles = StyleSheet.create({
     container: {
-      backgroundColor: 'red',
       width:'100%',
       height: '100%',
       flexDirection: 'column',

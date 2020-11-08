@@ -14,7 +14,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from './source/views/HomeScreen/HomeScreen';
-import { MainScreen } from './source/views/MainApp';
+import MainScreen from './source/views/MainApp';
 
 declare const global: {HermesInternal: null | {}};
 
