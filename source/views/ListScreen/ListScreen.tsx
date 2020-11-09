@@ -14,8 +14,13 @@ import CardGameCell from '../components/CardGameCell';
 export default function ListScreen() {
 
   const renderItem = ({ item }: { item: CardGame }) => (
-    <CardGameCell item={item} />
+    <CardGameCell item={item} onAccessoryPress={() => onFavoritePress(item)}/>
   );
+
+  const onFavoritePress = (item:CardGame) => {
+    console.log('OnFavoritePress')
+    console.log(item.title)
+  }
 
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>

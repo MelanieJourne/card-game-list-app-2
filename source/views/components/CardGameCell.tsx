@@ -7,8 +7,13 @@ import { GameTypeEnum } from '../../class/GameTypeEnum';
 
 import { colors } from '../../assets/theme/colors';
 
+interface ICardGameCell {
+    item: CardGame;
+    onAccessoryPress: (item:CardGame) => void;
+}
 
-const CardGameCell = ({ item }: { item: CardGame }) => (
+const CardGameCell:React.FC<ICardGameCell> = ({item, onAccessoryPress}) => (
+    
     <View style={styles.container}>
         <View style={styles.viewIcon}>
             <Image
@@ -20,7 +25,7 @@ const CardGameCell = ({ item }: { item: CardGame }) => (
             <Text style={styles.text}>{item.title}</Text>
         </View>
         <View style={styles.viewAccessory}>
-            <Icon name={'md-star-outline'} size={30} color={colors.purple_dark} />
+            <Icon name={'md-star-outline'} size={30} color={colors.purple_dark} onPress={onAccessoryPress}/>
         </View>
     </View>
 );
