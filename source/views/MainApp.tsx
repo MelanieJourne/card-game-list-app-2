@@ -19,7 +19,7 @@ export default function MainScreen() {
           }}
           screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
-              let iconName:string; 
+              let iconName:string = ''; 
               if(route.name === 'Liste') {
                 iconName = focused ? 'list-circle-sharp' : 'list-circle-outline';
               }
@@ -34,7 +34,7 @@ export default function MainScreen() {
           })}
         >
             <Tab.Screen name="Liste" component={ListScreen} />
-            <Tab.Screen name="Favoris" component={FavoriteScreen} />
+            <Tab.Screen name="Favoris" component={FavoriteScreen} />  
             <Tab.Screen name="Surprise" component={RandomScreen} />
         </Tab.Navigator>
     )
