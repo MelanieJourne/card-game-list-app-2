@@ -21,11 +21,11 @@ export default function FavoriteScreen({navigation}) {
     }
 
     const onPress = () => {
-      console.log(selectTab)
       if(selectTab === 'favorite') {
         navigation.navigate('Liste')
       }
       else {
+        //TODO
         console.log('On press no game')
       }
     }
@@ -48,13 +48,13 @@ export default function FavoriteScreen({navigation}) {
                 />
             </View>
             <View style={styles.viewEmptyContent}>
-              <Text style={styles.textTitle}>{translate('fav_none_title')}</Text>
-              <Text style={styles.textDescription}>{translate('fav_none_desc')}</Text>
+              <Text style={styles.textTitle}>{selectTab === 'favorite' ? translate('fav_none_title') : translate('mine_none_title') }</Text>
+              <Text style={styles.textDescription}>{selectTab === 'favorite' ? translate('fav_none_desc') : translate('mine_none_desc')}</Text>
               <TouchableOpacity
                 style={styles.btnLarge}
                 onPress={onPress}
               >
-              <Text style={styles.textBtn}>{translate('browse_list')}</Text>
+              <Text style={styles.textBtn}>{selectTab === 'favorite' ? translate('browse_list') : translate('add')}</Text>
               </TouchableOpacity>
             </View>
         </LinearGradient>
