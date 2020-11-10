@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Text, View, FlatList } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { useDispatch, useSelector } from "react-redux";
 // Assets import
 import games from '../../assets/data/games';
 import { colors } from '../../assets/theme/colors';
@@ -10,16 +11,35 @@ import CardGame from '../../class/CardGame';
 import { styles } from './ListScreenStyle';
 // Component import
 import CardGameCell from '../components/CardGameCell';
+// Function import
+import { addFavorite, removeFavorite } from '../../redux/actions';
 
 export default function ListScreen() {
 
+  const favList = useSelector(state => state.favorite);
+  const dispatch = useDispatch();
+
   const renderItem = ({ item }: { item: CardGame }) => (
-    <CardGameCell item={item} onAccessoryPress={() => onFavoritePress(item)}/>
+    <CardGameCell item={item} isFavorite={isFavorite(item)} onAccessoryPress={() => onFavoritePress(item)}/>
   );
 
+  const isFavorite = (item:CardGame) : Boolean => {
+    let value = false;
+    favList.forEach( (element:CardGame) => {
+      if(element.id === item.id) {
+        value = true;
+      }
+    });
+    return value;
+  }
+
   const onFavoritePress = (item:CardGame) => {
-    console.log('OnFavoritePress')
-    console.log(item.title)
+    if(isFavorite(item)) {
+      dispatch(removeFavorite(item))
+    }
+    else {
+      dispatch(addFavorite(item))
+    }
   }
 
     return (

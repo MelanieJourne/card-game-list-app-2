@@ -9,10 +9,11 @@ import { colors } from '../../assets/theme/colors';
 
 interface ICardGameCell {
     item: CardGame;
+    isFavorite:Boolean;
     onAccessoryPress: (item:CardGame) => void;
 }
 
-const CardGameCell:React.FC<ICardGameCell> = ({item, onAccessoryPress}) => (
+const CardGameCell:React.FC<ICardGameCell> = ({item, isFavorite, onAccessoryPress}) => (
     
     <View style={styles.container}>
         <View style={styles.viewIcon}>
@@ -25,7 +26,7 @@ const CardGameCell:React.FC<ICardGameCell> = ({item, onAccessoryPress}) => (
             <Text style={styles.text}>{item.title}</Text>
         </View>
         <View style={styles.viewAccessory}>
-            <Icon name={'md-star-outline'} size={30} color={colors.purple_dark} onPress={onAccessoryPress}/>
+            <Icon name={isFavorite ? 'md-star-sharp' : 'md-star-outline'} size={30} color={colors.purple_dark} onPress={onAccessoryPress}/>
         </View>
     </View>
 );
